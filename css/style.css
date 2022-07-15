@@ -1,0 +1,118 @@
+/* GLOBAL */
+:root {
+  --primary-font: "Helvetica Neue Regular", "Helvetica Neue", sans-serif;
+  --secondary-font: "Newsreader", "Times New Roman", "Times", serif;
+  --text-color: #FFF;
+  --second-color: #F7C58B;
+  --fade-in-effect: fadein 800ms;
+  font-size: calc(1em + 0.5vw);
+  font-family: var(--primary-font);
+  color: var(--text-color);
+  /* letter-spacing: -0.01em; */
+  /* cursor: ns-resize; */
+  /* --accent-color: #E2EECE; */
+  /* --text-color-secondary: #ECECEC; */
+  /* --background-color: #f5e9d2; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-animation: var(--fade-in-effect);
+  -moz-animation: var(--fade-in-effect);
+  -ms-animation: var(--fade-in-effect);
+  -o-animation: var(--fade-in-effect);
+  animation: var(--fade-in-effect);
+}
+
+::selection {
+  /* color: var(--text-color-secondary);
+  background: var(--text-color); */
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  touch-action: manipulation;
+}
+
+body {
+  background: #f69ec4;
+  font-family: "Lato", sans-serif;
+}
+
+h2 {
+  color: #000;
+  text-align: center;
+  font-size: 2em;
+  margin: 20px 0;
+}
+
+.warpper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 0px 2px;
+  background: #32557f;
+  display: inline-block;
+  color: #fff;
+  border-radius: 3px 3px 0px 0px;
+  box-shadow: 0 0.5rem 0.8rem #00000080;
+}
+
+.panels {
+  background: #fff;
+  box-shadow: 0 2rem 2rem #00000080;
+  min-height: 200px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 3px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.panel {
+  display: none;
+  animation: fadein 0.8s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.panel-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.radio {
+  display: none;
+}
+
+#one:checked~.panels #one-panel,
+#two:checked~.panels #two-panel,
+#three:checked~.panels #three-panel {
+  display: block;
+}
+
+#one:checked~.tabs #one-tab,
+#two:checked~.tabs #two-tab,
+#three:checked~.tabs #three-tab {
+  background: #fff;
+  color: #000;
+  border-top: 3px solid #32557f;
+}
