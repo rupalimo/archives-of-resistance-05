@@ -5,9 +5,6 @@
   --text-color: #FFF;
   --second-color: #F7C58B;
   --fade-in-effect: fadein 800ms;
-  font-size: calc(1em + 0.5vw);
-  font-family: var(--primary-font);
-  color: var(--text-color);
   /* letter-spacing: -0.01em; */
   /* cursor: ns-resize; */
   /* --accent-color: #E2EECE; */
@@ -39,80 +36,75 @@ html, body {
   touch-action: manipulation;
 }
 
-body {
-  background: #f69ec4;
-  font-family: "Lato", sans-serif;
-}
-
-h2 {
-  color: #000;
-  text-align: center;
-  font-size: 2em;
-  margin: 20px 0;
-}
-
-.warpper {
+.tabs {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  height: 300px;
+  width: 500px;
+}
+
+.tabs label {
+  order: 1;
+  display: flex;
+  justify-content: center;
   align-items: center;
-}
-
-.tab {
+  padding: 1rem 2rem;
+  margin-right: 0.2rem;
   cursor: pointer;
-  padding: 10px 20px;
-  margin: 0px 2px;
-  background: #32557f;
-  display: inline-block;
-  color: #fff;
-  border-radius: 3px 3px 0px 0px;
-  box-shadow: 0 0.5rem 0.8rem #00000080;
-}
-
-.panels {
-  background: #fff;
-  box-shadow: 0 2rem 2rem #00000080;
-  min-height: 200px;
-  width: 100%;
-  max-width: 500px;
-  border-radius: 3px;
-  overflow: hidden;
-  padding: 20px;
-}
-
-.panel {
-  display: none;
-  animation: fadein 0.8s;
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.panel-title {
-  font-size: 1.5em;
+  background-color: pink;
   font-weight: bold;
+  transition: background ease 0.3s;
 }
 
-.radio {
+.tabs .tab {
+  order: 9;
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  display: none;
+  padding: 1rem;
+  background: #fff;
+  padding: 20px;
+  box-shadow: -10px 10px 0px 0px black;
+}
+
+.tabs input[type="radio"] {
   display: none;
 }
 
-#one:checked~.panels #one-panel,
-#two:checked~.panels #two-panel,
-#three:checked~.panels #three-panel {
+.tabs input[type="radio"]:checked+label {
+  background: #fff;
+}
+
+.tabs input[type="radio"]:checked+label+.tab {
   display: block;
 }
 
-#one:checked~.tabs #one-tab,
-#two:checked~.tabs #two-tab,
-#three:checked~.tabs #three-tab {
-  background: #fff;
-  color: #000;
-  border-top: 3px solid #32557f;
+@media (max-width: 465px) {
+
+  .tabs .tab,
+  .tabs label {
+    order: initial;
+  }
+
+  .tabs label {
+    width: 100%;
+    margin-left: 50px;
+  }
+}
+
+body {
+  background: pink;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 10vh;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  max-width: 60rem;
+  margin: 0 auto;
+  font-size: 110%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
