@@ -1,9 +1,9 @@
 /* GLOBAL */
 :root {
-  --primary-font: "Helvetica Neue Regular", "Helvetica Neue", sans-serif;
-  --secondary-font: "Newsreader", "Times New Roman", "Times", serif;
-  --text-color: #FFF;
-  --second-color: #F7C58B;
+  --primary-font: 'JetBrains Mono', monospace;
+  --secondary-font: 'VT323', monospace;
+  --text-color: #000;
+  --green-color: #00FF12;
   --fade-in-effect: fadein 800ms;
   /* letter-spacing: -0.01em; */
   /* cursor: ns-resize; */
@@ -31,41 +31,76 @@
 }
 
 html, body {
+  font-family: var(--primary-font);
   margin: 0;
   padding: 0;
   touch-action: manipulation;
 }
 
+body {
+  min-height: 100vh;
+  box-sizing: border-box;
+  /* font-weight: 300; */
+  /* line-height: 1.5; */
+  max-width: 98vw;
+  margin: 0 auto;
+  /* font-size: 110%; */
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  flex-direction: column;
+  background-color: #EEE;
+}
+
+header {
+  display: flex;
+  background-color: var(--lime-color);
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid var(--text-color);
+  justify-content: center;
+  background-color: white;
+}
+
+a {
+  font-family: var(--secondary-font);
+  margin: 0;
+  flex-grow: 1;
+}
+
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  height: 300px;
-  width: 500px;
+  height: 90vh;
+  /* width: 96vw;*/
 }
 
 .tabs label {
   order: 1;
   display: flex;
+  height: max-content;
   justify-content: center;
   align-items: center;
-  padding: 1rem 2rem;
-  margin-right: 0.2rem;
+  padding: 2em;
+  margin: 0.5em 0.25em;
   cursor: pointer;
-  background-color: pink;
-  font-weight: bold;
   transition: background ease 0.3s;
+}
+
+label:hover {
+  color: var(--green-color);
 }
 
 .tabs .tab {
   order: 9;
-  flex-grow: 1;
-  width: 100%;
+  /* flex-grow: 1; */
+  width: 100vw;
   height: 100%;
   display: none;
-  padding: 1rem;
+  /* padding: 1rem;
   background: #fff;
   padding: 20px;
-  box-shadow: -10px 10px 0px 0px black;
+  box-shadow: -10px 10px 0px 0px black; */
 }
 
 .tabs input[type="radio"] {
@@ -73,11 +108,15 @@ html, body {
 }
 
 .tabs input[type="radio"]:checked+label {
-  background: #fff;
+  background-color: var(--green-color);
+  border-radius: 1em;
+  color: white;
+  padding: 2em;
 }
 
 .tabs input[type="radio"]:checked+label+.tab {
   display: block;
+  background-color: white;
 }
 
 @media (max-width: 465px) {
@@ -91,20 +130,4 @@ html, body {
     width: 100%;
     margin-left: 50px;
   }
-}
-
-body {
-  background: pink;
-  min-height: 100vh;
-  box-sizing: border-box;
-  padding-top: 10vh;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 300;
-  line-height: 1.5;
-  max-width: 60rem;
-  margin: 0 auto;
-  font-size: 110%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
