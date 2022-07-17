@@ -76,7 +76,7 @@ header {
   margin: 0.5em 0em;
   width: 100vw;
   text-transform: uppercase;
-  animation-delay: -3s;
+  animation-delay: -17s;
 }
 
 .marquee:hover {
@@ -124,6 +124,7 @@ label:hover {
   border: 1px solid var(--text-color);
   padding: 0.25em 1em;
   font-style: oblique;
+  transition: 0.15s;
 }
 
 .tabs .tab {
@@ -150,6 +151,22 @@ label:hover {
 
 .tabs input[type="radio"]:checked+label+.tab {
   display: block;
+}
+
+.border {
+  border-radius: 1em;
+  border: 1px solid var(--text-color);
+  padding: 0.25em 1em;
+}
+
+section {
+  display: flex;
+}
+
+section article {
+  min-width: 100px;
+  min-height: 100px;
+  margin-right: 1em;
 }
 
 @media (max-width: 465px) {
