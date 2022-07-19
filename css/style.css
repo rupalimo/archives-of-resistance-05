@@ -73,10 +73,9 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0.5em 0em;
   width: 100vw;
   text-transform: uppercase;
-  animation-delay: -17s;
+  animation-delay: -18s;
 }
 
 .marquee:hover {
@@ -101,7 +100,13 @@ div.circle {
   flex-wrap: wrap;
   height: 90vh;
   align-items: center;
+  overflow-x: hidden;
   /* width: 96vw;*/
+}
+
+.tabs label:first-of-type {
+  border: none;
+  margin-bottom: none;
 }
 
 .tabs label {
@@ -113,7 +118,7 @@ div.circle {
   border-radius: 1em;
   border: 1px dashed var(--text-color);
   padding: 0.25em 1em;
-  margin: 0.5em 1em 0.5em 0;
+  margin: 0.25em 1em 0.18em 0em;
   cursor: pointer;
   transition: background ease 0.3s;
 }
@@ -143,14 +148,21 @@ label:hover {
   display: none;
 }
 
+.tabs input[type="radio"]:checked+label:first-of-type {
+  border: none;
+  margin-bottom: none;
+}
+
 .tabs input[type="radio"]:checked+label {
   border-radius: 1em;
   border: 1px solid var(--text-color);
-  padding: 0.25em 1em;
+  /* padding: 0.25em 1em; */
 }
 
 .tabs input[type="radio"]:checked+label+.tab {
-  display: block;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 }
 
 .border {
@@ -161,6 +173,7 @@ label:hover {
 
 section {
   display: flex;
+  margin-top: 0.32em;
 }
 
 section article {
